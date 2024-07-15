@@ -15,8 +15,9 @@ export const SocketContextProvider = ({children})=>{
 
     useEffect(()=>{
         console.log(authUser);
+        const socketServerUrl = process.env.REACT_APP_SOCKET_SERVER_URL;
         if(authUser){
-            const socket = io('http://localhost:5000',{
+            const socket = io(socketServerUrl,{
                 query:{
                     userId: authUser._id
                 }
